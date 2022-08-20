@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <!--init admin1 -->
+    <!--#{defaultUser.defaultAdmin1()}-->
+    <h:head>
+        <title>BTEC Paypal - Login</title>
+    </h:head>
+    <body bgcolor="lightblue">
+        <h2>Hello, please log in:</h2>
+        <br/>
+        <h:form>
+            Username: <h:inputText value="#{loginBean.username}"/>
+                <br/>
+            Password: <h:inputSecret value="#{loginBean.password}"/>
+            <br/>
+            <br/>
+            <h:commandButton value="Submit" action="#{loginBean.login()}"/>
+            <h:commandButton value="Reset" type="reset"/>
+        </h:form>
+        <h:link value="Register an account here" outcome="registration"/>
+    </body>
+</html>

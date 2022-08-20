@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>BTEC Paypal - User page</title>
+    </h:head>
+    <body bgcolor="lightblue">
+    <h:body>
+        <h:outputLabel value="USER PAGE"/>
+        <br/>
+        <br/>
+        <br/>
+        <h:form>
+            send payment <h:button outcome="sendPayment.xhtml?faces-redirect=true" value="here"/>
+            <br/>
+            <br/>
+            request payment <h:button outcome="requestPayment.xhtml?faces-redirect=true" value="here"/>
+            <br/>
+            <br/>
+            see all transactions <h:button outcome="viewTransactions.xhtml?faces-redirect=true" value="here"/>
+            <br/>
+            <br/>
+            see your payment requests <h:button outcome="viewRequests.xhtml?faces-redirect=true" value="here"/>
+        </h:form>
+        <br/>
+        <br/>
+        <h:link value="Back to index" outcome="index"/>
+    </h:body>
+</body>
+</html>
+

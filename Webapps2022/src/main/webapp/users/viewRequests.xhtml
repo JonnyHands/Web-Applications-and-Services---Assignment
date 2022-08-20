@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>BTEC Paypal - Requests</title>
+    </h:head>
+    <body bgcolor="lightblue">
+        <br/>
+        <br/>
+        <p>Your balance is:  #{currentUser.balance} #{currentUser.currency}</p> 
+        <br/>
+        <h:dataTable value="#{GetLists.userRequests}" var="r">
+            <h:column>    				
+                <f:facet name="header">Request Id</f:facet>    				
+                    #{r.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Requested From</f:facet>
+                    #{r.requestedBy.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Amount #{currentUser.currency}</f:facet>
+                #{r.amount}
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:form>
+                    <h:commandButton value="Accept" action="#{requestBean.accept(r.id)}"/>
+                </h:form>
+            </h:column>
+            <h:column>
+                <f:facet name="header"></f:facet>
+                <h:form>
+                    <h:commandButton value="Remove" action="#{requestBean.remove(r.id)}"/>
+                </h:form>                
+            </h:column>
+        </h:dataTable>
+        <h:outputText value="#{requestBean.result}" style="color:red"/>
+    </body>
+    <br/>
+    <br/>
+
+    <h:button outcome="/users/user.xhtml?faces-redirect=true" value="Return"/>
+</html>

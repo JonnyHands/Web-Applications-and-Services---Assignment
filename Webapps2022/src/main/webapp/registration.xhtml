@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>BTEC Paypal - Registration</title>
+    </h:head>
+    <body bgcolor="lightblue">
+    <h:body>
+        <h:form>
+            Fill in the details and press the register button.
+            <br/>
+            <br/>
+            <h:outputLabel for="username" value="*User name:"/>
+            <h:inputText id ="username" value="#{RegistrationBean.username}" title="Enter user name" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="username"/>
+            <br/>
+            <br/>
+            <h:outputLabel for="userPassword" value="*Password:"/>
+            <h:inputSecret id ="userPassword" value="#{RegistrationBean.userpassword}" title="Enter password" label="password" required="true" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="userPassword"/>
+            <br/>
+            <br/>
+            <h:outputLabel for="name" value="*First Name: "/>
+            <h:inputText id ="name" value="#{RegistrationBean.name}" title="Enter name" required="true" label="name" requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="name"/>
+            <br/>
+            <br/>
+            <h:outputLabel for="surname" value="*Last Name"/>
+            <h:inputText id ="surname" value="#{RegistrationBean.surname}" title="Enter surname" label="surname" required="true"  requiredMessage="Mandatory Field"/>
+            &nbsp; 
+            <h:message style="color:red" for="surname"/>
+            <br/>
+            <br/>
+            <h:outputLabel for="currency" value="*Choose currency below: " />
+            <br/>
+            <br/>
+            <h:selectOneListbox id="currency" value = "#{RegistrationBean.currency}" required="true" requiredMessage="Select from dropdown..."> 
+                <f:selectItem itemValue = "GBP" itemLabel = "GB Pounds" /> 
+                <f:selectItem itemValue = "USD" itemLabel = "US Dollars" /> 
+                <f:selectItem itemValue = "EUR" itemLabel = "Euros" /> 
+            </h:selectOneListbox>  
+            <br/>
+            <br/>
+            <h:commandButton id="register" type="submit" value="Register" action="#{RegistrationBean.registerUser}" title="Register User"/>
+            <h:commandButton id="reset" type="reset" value="Reset Form" title="Reset Form"/>
+        </h:form>
+        <br/>
+        <br/>
+        <h:button outcome="/faces/index.xhtml?faces-redirect=true" value="Return"/>
+
+    </h:body>
+    </body>
+</html>
+

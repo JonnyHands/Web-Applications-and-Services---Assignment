@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>BTEC Paypal - Transactions</title>
+    </h:head>
+    <body bgcolor="lightblue">
+        <br/>
+        <br/>
+        <p>Received Transactions:</p>
+        <h:dataTable value="#{GetLists.userTransactionsReceived}" var="transReceived">
+            <h:column>    				
+                <f:facet name="header">Sender Username</f:facet>    				
+                    #{transReceived.sentFrom.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Receiver Username</f:facet>
+                    #{transReceived.sentTo.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Amount #{currentUser.currency}</f:facet>
+                    #{transReceived.amount}
+            </h:column>
+        </h:dataTable>
+        <br/>
+            <br/>
+        <p>Transactions sent:</p>
+        <h:dataTable value="#{GetLists.userTransactionsSent}" var="transSent">
+            <h:column>    				
+                <f:facet name="header">Sender Username</f:facet>    				
+                    #{transSent.sentFrom.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Receiver Username</f:facet>
+                    #{transSent.sentTo.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Amount #{currentUser.currency}</f:facet>
+                    #{transSent.amount}
+            </h:column>
+        </h:dataTable>
+    </body>
+    <br/>
+        <br/>
+    <h:button outcome="/users/user.xhtml?faces-redirect=true" value="Return"/>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <body bgcolor="lightblue">
+        <div>See all accounts and balances below</div>
+        <h:dataTable value="#{GetLists.allUsers}" var="users">
+            <h:column>    				
+                <f:facet name="header">Name</f:facet>    				
+                    #{users.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Username</f:facet>
+                    #{users.username}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Balance GBP</f:facet>
+                    #{users.balance}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Balance User Currency</f:facet>
+                    #{users.balance}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Currency</f:facet>
+                    #{users.currency}
+            </h:column>
+        </h:dataTable>
+    </body>
+    <br/>
+    <br/>
+    <h:button id="return" outcome="/admins/admin.xhtml?faces-redirect=true" value="Return"/>
+    <br/>
+</html>
